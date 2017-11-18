@@ -8,4 +8,6 @@ public interface UserDAO {
 
     public List<User> getUsers();
 
+    public void saveUser (User newUser);
+
 }

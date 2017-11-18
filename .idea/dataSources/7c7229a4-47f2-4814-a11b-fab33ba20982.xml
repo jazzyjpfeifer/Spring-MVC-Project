@@ -6,145 +6,39 @@
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
-    <schema id="3" parent="1" name="hb-01-one-to-one-uni"/>
-    <schema id="4" parent="1" name="hb-03-one-to-many"/>
-    <schema id="5" parent="1" name="hb_student_tracker"/>
-    <schema id="6" parent="1" name="information_schema"/>
-    <schema id="7" parent="1" name="mysql"/>
-    <schema id="8" parent="1" name="performance_schema"/>
-    <schema id="9" parent="1" name="sys"/>
-    <schema id="10" parent="1" name="web_customer_tracker"/>
-    <table id="11" parent="2" name="hibernate_sequence"/>
-    <table id="12" parent="2" name="post_detail"/>
-    <table id="13" parent="2" name="posts"/>
-    <table id="14" parent="2" name="user"/>
-    <column id="15" parent="11" name="next_val">
-      <Position>1</Position>
-      <DataType>bigint(20)|0</DataType>
-    </column>
-    <column id="16" parent="12" name="content">
-      <Position>1</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="17" parent="12" name="content_title">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="18" parent="12" name="content_type">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="19" parent="12" name="image_name">
-      <Position>4</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="20" parent="12" name="post_id">
-      <Position>5</Position>
-      <DataType>bigint(20)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="21" parent="12" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>post_id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="22" parent="12" name="FK1hybndd5tde9koap3htty71db">
-      <ColNames>post_id</ColNames>
-      <RefSchemaName>bi-steps</RefSchemaName>
-      <RefTableName>posts</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="23" parent="13" name="id">
-      <Position>1</Position>
-      <DataType>bigint(20)|0</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
-    </column>
-    <column id="24" parent="13" name="summary">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="25" parent="13" name="title">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="26" parent="13" name="post_detail_id">
-      <Position>4</Position>
-      <DataType>bigint(20)|0</DataType>
-    </column>
-    <column id="27" parent="13" name="dtype">
-      <Position>5</Position>
-      <DataType>varchar(31)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="28" parent="13" name="content">
-      <Position>6</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="29" parent="13" name="content_title">
-      <Position>7</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="30" parent="13" name="content_type">
-      <Position>8</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="31" parent="13" name="image_name">
-      <Position>9</Position>
-      <DataType>varchar(255)|0</DataType>
-    </column>
-    <column id="32" parent="13" name="post_id">
-      <Position>10</Position>
-      <DataType>bigint(20)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="33" parent="13" name="FKntnu8l8rkqfiuygvm6h3qw4p2">
-      <ColNames>post_detail_id</ColNames>
-    </index>
-    <key id="34" parent="13" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="35" parent="13" name="FKlha1cnx7cqrk6qrqvi48f1f8q">
-      <ColNames>post_detail_id</ColNames>
-      <RefSchemaName>bi-steps</RefSchemaName>
-      <RefTableName>post_detail</RefTableName>
-      <RefColNames>post_id</RefColNames>
-    </foreign-key>
-    <foreign-key id="36" parent="13" name="FKntnu8l8rkqfiuygvm6h3qw4p2">
-      <ColNames>post_detail_id</ColNames>
-      <RefSchemaName>bi-steps</RefSchemaName>
-      <RefTableName>posts</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
-    <column id="37" parent="14" name="id">
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="sys"/>
+    <schema id="7" parent="1" name="bi_steps"/>
+    <table id="8" parent="2" name="user"/>
+    <column id="9" parent="8" name="id">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="38" parent="14" name="date_created">
+    <column id="10" parent="8" name="date_created">
       <Position>2</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="39" parent="14" name="date_last_modified">
+    <column id="11" parent="8" name="date_last_modified">
       <Position>3</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="40" parent="14" name="emailAddress">
+    <column id="12" parent="8" name="emailAddress">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="41" parent="14" name="firstName">
+    <column id="13" parent="8" name="firstName">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="42" parent="14" name="lastName">
+    <column id="14" parent="8" name="lastName">
       <Position>6</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="43" parent="14" name="PRIMARY">
+    <key id="15" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

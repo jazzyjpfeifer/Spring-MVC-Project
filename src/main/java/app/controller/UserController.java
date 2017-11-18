@@ -27,5 +27,14 @@ public class UserController {
         return "/users/user.html";
     }
 
+    @GetMapping(value = "/add")
+    public String showAdduserForm(Model model) {
+        User newUser = new User();
+
+        model.addAttribute("user", newUser);
+
+        return "/users/user_add.html";
+    }
+
 
 }
