@@ -7,17 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a5f4ec-667f-46ad-9364-0f5aadcd5971" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/app/controller/UserController.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/myapp/WEB-INF/classes/app/controller/UserController.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/app/dao/UserDAO.class" afterPath="$PROJECT_DIR$/target/classes/app/dao/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/app/dao/UserDAOImpl.class" afterPath="$PROJECT_DIR$/target/classes/app/dao/UserDAOImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/app/service/UserService.class" afterPath="$PROJECT_DIR$/target/classes/app/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/app/service/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/app/service/UserServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/myapp/WEB-INF/classes/app/dao/UserDAO.class" afterPath="$PROJECT_DIR$/target/myapp/WEB-INF/classes/app/dao/UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/myapp/WEB-INF/classes/app/service/UserService.class" afterPath="$PROJECT_DIR$/target/myapp/WEB-INF/classes/app/service/UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/myapp/WEB-INF/classes/app/service/UserServiceImpl.class" afterPath="$PROJECT_DIR$/target/myapp/WEB-INF/classes/app/service/UserServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/myapp/WEB-INF/templates/index.html" afterPath="$PROJECT_DIR$/target/myapp/WEB-INF/templates/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -594,7 +584,7 @@
       <updated>1510947355315</updated>
       <workItem from="1510947362863" duration="10904000" />
       <workItem from="1511010523205" duration="3523000" />
-      <workItem from="1511055103054" duration="15624000" />
+      <workItem from="1511055103054" duration="15651000" />
     </task>
     <task id="LOCAL-00001" summary="Test">
       <created>1510958243841</created>
@@ -631,11 +621,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511072682823</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Syncing with Master">
+      <created>1511072719919</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1511072719919</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30051000" />
+    <option name="totallyTimeSpent" value="30078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
