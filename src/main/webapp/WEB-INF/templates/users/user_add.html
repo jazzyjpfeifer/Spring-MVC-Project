@@ -20,11 +20,11 @@
                 <a class="btn btn-default" href="/user">Go Back</a>
             </div>
 
-            <form action="#" th:action="@{/user}" th:object="${user}" method="post">
+            <form action="#" th:action="@{/users/save}" th:object="${user}" method="post">
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
                     <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
-                    <input type="submit" class="btn btn-default" value="Save">
+                    <input type="submit" value="Save">
                 </div>
             </form>
 

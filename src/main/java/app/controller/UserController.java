@@ -5,28 +5,25 @@ import app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping
+    @GetMapping(value = "")
     public String users(Model model) {
 
         List<User> users = userService.getUsers();
 
         model.addAttribute("users", users);
 
-        return "/users/user.html";
+        return "users/users.html";
     }
 
     @GetMapping(value = "/add")
@@ -38,12 +35,13 @@ public class UserController {
         return "/users/user_add.html";
     }
 
-    @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") User newUser) {
-        userService.saveUser(newUser);
+    @PostMapping(value = "/save")
+    public String saveUser(@ModelAttribute("user") User user) {
 
-        return "redirect:/user";
+        // save the customer using our service
+        userService.saveUser(user);
+
+        return "redirect:/users.html";
     }
-
 
 }
