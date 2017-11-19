@@ -38,10 +38,41 @@ public class UserController {
     @PostMapping(value = "/save")
     public String saveUser(@ModelAttribute("user") User user) {
 
+        System.out.println("Inserting new record...");
+
         // save the customer using our service
         userService.saveUser(user);
 
+        System.out.println("New User was saved successfully!");
+
         return "redirect:/users.html";
     }
+
+    @GetMapping(value = "/show/{id}")
+    public String showUserById(Model model, @PathVariable int id) {
+
+        model.addAttribute("user", userService.getUserById(id));
+
+        return "/users/user_show.html";
+
+    }
+
+    @GetMapping(value = "/edit/{id}")
+    public String editUserById(Model model, @PathVariable int id) {
+
+        model.addAttribute("user", userService.getUserById(id));
+
+        return "/users/user_edit.html";
+    }
+
+    @GetMapping(value = "/delete")
+    public String deleteUserById(@RequestParam("userId") int theId) {
+
+
+        userService.deleteUserById(theId);
+
+        return "redirect:/users.html";
+    }
+
 
 }

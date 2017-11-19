@@ -24,8 +24,16 @@
                 <div class="form-group">
                     <label for="firstName">First Name:</label>
                     <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
-                    <input type="submit" value="Save">
                 </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+                </div>
+                <div class="form-group">
+                    <label for="emailAddress">Email:</label>
+                    <input type="email" class="form-control" id="emailAddress" th:field="*{emailAddress}" />
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
             </form>
 
         </div>

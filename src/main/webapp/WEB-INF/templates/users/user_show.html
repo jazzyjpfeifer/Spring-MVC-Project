@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Users</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/4.0.0-beta.2/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
+            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <link href="/resources/css/styles.css" th:href="@{/resources/css/styles.css}" rel="stylesheet" media="screen"/>
+</head>
+<body>
+<div class="container">
+    <h1>User Details</h1>
+    <p th:text="'Name: ' + ${user.firstName} + ' ' + ${user.lastName}"></p>
+    <p th:text="'Email: ' + ${user.emailAddress}"></p>
+    <div class="row">
+        <a href="/users">Go Back</a>
+    </div>
+</div>
+</body>
+</html>

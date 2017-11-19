@@ -35,7 +35,7 @@
                         <td th:text="${user.emailAddress}"></td>
                         <td><a th:href="@{'/users/show/' + ${user.id}}">Details</a></td>
                         <td><a th:href="@{'/users/edit/' + ${user.id}}">Edit</a></td>
-                        <td><a th:href="@{'/users/delete/' + ${user.id}}">Delete</a></td>
+                        <td><a th:href="@{'/users/delete/'}" param name="userId" th:value="${user.id}">Delete</a></td>
                     </tr>
                     </tbody>
                 </table>
