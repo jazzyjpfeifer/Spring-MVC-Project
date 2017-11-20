@@ -22,8 +22,7 @@
                             <td th:text="${role.id}"></td>
                             <td th:text="${role.role}"></td>
                             <td th:text="${role.roleDescription}"></td>
-                            <td><a th:href="@{'/roles/show/' + ${role.id}}">Details</a></td>
-                            <td><a th:href="@{'/roles/edit/' + ${role.id}}">Edit</a></td>
+                            <td><a th:href="@{'/roles/edit/'(roleId = ${role.id})}">Edit</a></td>
                             <td><a th:href="@{'/roles/delete/'(roleId=${role.id})}">Delete</a></td>
                         </tr>
                         </tbody>

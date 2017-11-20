@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.MapsId;
 import java.util.List;
 
 @Controller
@@ -56,6 +57,16 @@ public class RoleController {
         model.addAttribute("role", roleService.getRoleById(id));
 
         return "/roles/role_add.html";
+    }
+
+    @GetMapping(value = "/update")
+    public String showRoleFormForUpdate(@RequestParam("roleId") int id, Model model) {
+
+        Role role = roleService.getRoleById(id);
+
+        model.addAttribute("role", role);
+
+        return "roles/role_add.html";
     }
 
 
