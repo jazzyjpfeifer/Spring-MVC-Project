@@ -1,41 +1,31 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-    <title>Users</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
-          th:href="@{/webjars/bootstrap/4.0.0-beta.2/css/bootstrap.min.css}"
-          rel="stylesheet" media="screen" />
-    <script src="http://cdn.jsdelivr.net/webjars/jquery/3.2.1/jquery.min.js"
-            th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
-    <link href="/resources/css/styles.css" th:href="@{/resources/css/styles.css}" rel="stylesheet" media="screen"/>
-</head>
+<head th:replace="fragments/head :: head (title='Edit User')"></head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="container">
-            <h1>Edit User</h1>
-
-            <form action="#" th:action="@{/users/save}" th:object="${user}" method="post">
-                <input type="hidden" th:field="*{id}"/>
-                <div class="form-group">
-                    <label for="firstName">First Name:</label>
-                    <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
-                </div>
-                <div class="form-group">
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
-                </div>
-                <div class="form-group">
-                    <label for="emailAddress">Email:</label>
-                    <input type="email" class="form-control" id="emailAddress" th:field="*{emailAddress}" />
-                </div>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </form>
-
+    <header th:replace="fragments/header :: header"></header>
+        <h1>Edit User</h1>
+        <form action="#" th:action="@{/users/save}" th:object="${user}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label for="firstName">First Name:</label>
+                <input type="text" class="form-control" id="firstName" th:field="*{firstName}" />
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name:</label>
+                <input type="text" class="form-control" id="lastName" th:field="*{lastName}" />
+            </div>
+            <div class="form-group">
+                <label for="emailAddress">Email:</label>
+                <input type="email" class="form-control" id="emailAddress" th:field="*{emailAddress}" />
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <div class="web-links">
+            <a href="/users">Go Back</a>
         </div>
-    </div>
 </div>
+<footer th:replace="fragments/footer :: footer"></footer>
 </body>
 </html>
