@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "")
+    @GetMapping()
     public String users(Model model) {
 
         List<User> users = userService.getUsers();
@@ -51,7 +51,9 @@ public class UserController {
     @GetMapping(value = "/show/{id}")
     public String showUserById(Model model, @PathVariable int id) {
 
-        model.addAttribute("user", userService.getUserById(id));
+        User user = userService.getUserById(id);
+
+        model.addAttribute("user", user);
 
         return "/users/user_show.html";
 
@@ -68,8 +70,11 @@ public class UserController {
     @GetMapping(value = "/delete")
     public String deleteUserById(@RequestParam("userId") int theId) {
 
+        System.out.println("Deleting record...");
 
         userService.deleteUserById(theId);
+
+        System.out.println("Record was removed successfully form the database");
 
         return "redirect:/users.html";
     }

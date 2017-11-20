@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head lang="en"></head>
+<head th:include="fragments/head :: head (title='Home')"></head>
 <body>
-<h1>Hello, Tamara</h1>
+<div class="container">
+    <header th:include="fragments/header :: header"></header>
+    <h1>Hello, Tamara Test</h1>
+</div>
+<footer th:include="fragments/footer :: footer">
+
+</footer>
 </body>
 </html>
