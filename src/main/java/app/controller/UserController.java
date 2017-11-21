@@ -38,12 +38,12 @@ public class UserController {
     @PostMapping(value = "/save")
     public String saveUser(@ModelAttribute("user") User user) {
 
-        System.out.println("Inserting new record...");
+        System.out.println("Saving new record...");
 
         // save the customer using our service
         userService.saveUser(user);
 
-        System.out.println("New User was saved successfully!");
+        System.out.println("User was saved to the database successfully!");
 
         return "redirect:/users.html";
     }
@@ -64,7 +64,7 @@ public class UserController {
 
         model.addAttribute("user", userService.getUserById(id));
 
-        return "/users/user_edit.html";
+        return "/users/user_add.html";
     }
 
     @GetMapping(value = "/delete")

@@ -32,15 +32,13 @@ public class RoleDAOImpl implements RoleDAO {
 
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.save(newRole);
+        currentSession.saveOrUpdate(newRole);
     }
 
     @Override
     public Role getRoleById(int id) {
         Session currentSession = sessionFactory.getCurrentSession();
-
         Role role = currentSession.get(Role.class, id);
-
         return role;
     }
 

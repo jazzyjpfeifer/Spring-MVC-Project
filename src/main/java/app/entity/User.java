@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -15,11 +16,29 @@ public class User {
     @Column(name = "id", updatable = false, nullable = false)
     private int id;
 
+    @Column(name = "firstName")
     private String firstName;
 
+    @Column(name = "lastName")
     private String lastName;
 
+    @Column(name = "login")
+    private String login;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "emailAddress")
     private String emailAddress;
+
+    /*
+    @OneToOne(cascade= CascadeType.ALL)
+    @JoinTable(name = "user_roles",
+            joinColumns = {@JoinColumn(name="user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
+    )
+    private Role role;
+    */
 
     @CreationTimestamp
     @Column(name = "date_created", updatable = false, insertable = true)
@@ -33,9 +52,11 @@ public class User {
 
     }
 
-    public User(String firstName, String lastName, String emailAddress, Timestamp dateCreated, Timestamp dateLastModified) {
+    public User(String firstName, String lastName, String login, String password, String emailAddress, Role role, Timestamp dateCreated, Timestamp dateLastModified) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.login = login;
+        this.password = password;
         this.emailAddress = emailAddress;
         this.dateCreated = dateCreated;
         this.dateLastModified = dateLastModified;
@@ -65,6 +86,22 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getEmailAddress() {
         return emailAddress;
     }
@@ -89,13 +126,14 @@ public class User {
         this.dateLastModified = dateLastModified;
     }
 
-
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 ", emailAddress='" + emailAddress + '\'' +
                 ", dateCreated=" + dateCreated +
                 ", dateLastModified=" + dateLastModified +

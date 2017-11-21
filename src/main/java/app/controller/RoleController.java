@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.persistence.MapsId;
 import java.util.List;
 
 @Controller
@@ -41,18 +39,18 @@ public class RoleController {
     @PostMapping(value = "/save")
     public String saveRole(@ModelAttribute("role") Role role) {
 
-        System.out.println("Inserting new record...");
+        System.out.println("Saving new record...");
 
         // save the customer using our service
         roleService.saveRole(role);
 
-        System.out.println("New User was saved successfully!");
+        System.out.println("User was saved to the database successfully!");
 
         return "redirect:/roles.html";
     }
 
-    @GetMapping(value = "/edit/{id}")
-    public String editRoleById(Model model, @PathVariable int id) {
+    @GetMapping(value = "/edit")
+    public String editRoleById(@RequestParam("roleId") int id, Model model) {
 
         model.addAttribute("role", roleService.getRoleById(id));
 

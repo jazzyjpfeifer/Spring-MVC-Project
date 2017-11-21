@@ -1,6 +1,6 @@
 package app.dao;
 
-import app.entity.User;
+import app.entity.Post;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -10,51 +10,51 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class PostDAOImpl implements PostDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
-    public List<User> getUsers() {
+    public List<Post> getPosts() {
 
         Session currentSession = sessionFactory.getCurrentSession();
 
-        Query<User> query = currentSession.createQuery("from User", User.class);
+        Query<Post> query = currentSession.createQuery("from Post order by datePosted", Post.class);
 
-        List<User> users = query.getResultList();
+        List<Post> posts = query.getResultList();
 
-        return users;
+        return posts;
     }
 
     @Override
-    public void saveUser(User newUser) {
+    public void savePost(Post post) {
 
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.saveOrUpdate(newUser);
+        currentSession.saveOrUpdate(post);
     }
 
     @Override
-    public User getUserById(int id) {
+    public Post getPost(int id) {
 
         Session currentSession = sessionFactory.getCurrentSession();
 
-        User user = currentSession.get(User.class, id);
+        Post post = currentSession.get(Post.class, id);
 
-        return user;
+        return post;
     }
 
     @Override
-    public void deleteUserById(int theId) {
+    public void deletePost(int id) {
 
         Session currentSession = sessionFactory.getCurrentSession();
 
-        Query query = currentSession.createQuery("delete from User where id=:userId");
-        query.setParameter("userId", theId);
+        Query query = currentSession.createQuery("delete from Post where id=:postId");
+
+        query.setParameter("postId", id);
 
         query.executeUpdate();
-
     }
 
 
