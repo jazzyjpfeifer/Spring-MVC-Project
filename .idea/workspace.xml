@@ -7,16 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6a5f4ec-667f-46ad-9364-0f5aadcd5971" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/7c7229a4-47f2-4814-a11b-fab33ba20982.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/7c7229a4-47f2-4814-a11b-fab33ba20982.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/controller/PostController.java" afterPath="$PROJECT_DIR$/src/main/java/app/controller/PostController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/dao/PostDAO.java" afterPath="$PROJECT_DIR$/src/main/java/app/dao/PostDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/dao/PostDAOImpl.java" afterPath="$PROJECT_DIR$/src/main/java/app/dao/PostDAOImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/service/PostService.java" afterPath="$PROJECT_DIR$/src/main/java/app/service/PostService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/app/service/PostServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/app/service/PostServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/posts/post_add.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/posts/post_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/posts/posts.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/templates/posts/posts.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/myapp/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/myapp/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -845,11 +836,18 @@
       <option name="project" value="LOCAL" />
       <updated>1511155851325</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Syncing with Master">
+      <created>1511666215822</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1511666215822</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38525000" />
+    <option name="totallyTimeSpent" value="38553000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
