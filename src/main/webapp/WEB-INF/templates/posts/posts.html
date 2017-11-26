@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/head :: head (title='Roles')"></head>
+<head th:replace="fragments/head :: head (title='Posts')"></head>
 <body>
 <div class="container">
     <header th:replace="fragments/header :: header"></header>
@@ -22,6 +22,7 @@
                         <td th:text="${post.id}"></td>
                         <td th:text="${post.title}"></td>
                         <td th:text="${post.summary}"></td>
+                        <td><a th:href="@{'/posts/show/'(postId = ${post.id})}">Details</a></td>
                         <td><a th:href="@{'/posts/edit/'(postId = ${post.id})}">Edit</a></td>
                         <td><a th:href="@{'/posts/delete/'(postId=${post.id})}">Delete</a></td>
                     </tr>

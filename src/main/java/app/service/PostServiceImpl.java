@@ -28,13 +28,13 @@ public class PostServiceImpl  implements PostService {
 
     @Override
     @Transactional
-    public Post getPost(int id) {
-        return postDAO.getPost(id);
+    public Post getPostById(int id) {
+        return postDAO.getPostById(id);
     }
 
     @Override
     @Transactional
-    public void deletePost(int id) {
-        postDAO.deletePost(id);
+    public void deletePostById(int id) {
+        postDAO.deletePostById(id);
     }
 }

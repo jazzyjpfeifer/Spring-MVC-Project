@@ -11,7 +11,7 @@ public interface PostDAO {
 
     public void savePost(Post post);
 
-    public Post getPost(int id);
+    public Post getPostById(int id);
 
-    public void deletePost(int Id);
+    public void deletePostById(int Id);
 }

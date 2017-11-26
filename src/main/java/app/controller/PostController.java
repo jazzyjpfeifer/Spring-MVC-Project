@@ -5,10 +5,7 @@ import app.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -47,6 +44,25 @@ public class PostController {
         System.out.println("Post was saved to the database successfully!");
 
         return "redirect:/posts.html";
+    }
+
+    @GetMapping(value = "/edit")
+    public String editRoleById(@RequestParam("postId") int id, Model model) {
+
+        model.addAttribute("post", postService.getPostById(id));
+
+        return "/posts/post_add.html";
+    }
+
+    @GetMapping(value = "/show")
+    public String showPostById(@RequestParam("postId") int id, Model model) {
+
+        Post post = postService.getPostById(id);
+
+        model.addAttribute("post", post);
+
+        return "/posts/post_show.html";
+
     }
 
 

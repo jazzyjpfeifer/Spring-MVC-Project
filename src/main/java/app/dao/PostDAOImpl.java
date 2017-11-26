@@ -36,7 +36,7 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
-    public Post getPost(int id) {
+    public Post getPostById(int id) {
 
         Session currentSession = sessionFactory.getCurrentSession();
 
@@ -46,7 +46,7 @@ public class PostDAOImpl implements PostDAO {
     }
 
     @Override
-    public void deletePost(int id) {
+    public void deletePostById(int id) {
 
         Session currentSession = sessionFactory.getCurrentSession();
 
