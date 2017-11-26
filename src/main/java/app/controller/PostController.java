@@ -1,6 +1,8 @@
 package app.controller;
 
 import app.entity.Post;
+import app.entity.PostDetail;
+import app.service.PostDetailService;
 import app.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,9 @@ public class PostController {
 
     @Autowired
     private PostService postService;
+
+    @Autowired
+    private PostDetailService postDetailService;
 
     @GetMapping()
     public String getPosts(Model model) {
@@ -59,10 +64,25 @@ public class PostController {
 
         Post post = postService.getPostById(id);
 
+        List<PostDetail> postdetails = postDetailService.getPostDetails();
+
         model.addAttribute("post", post);
+        model.addAttribute("postdetails", postdetails);
 
         return "/posts/post_show.html";
 
+    }
+
+    @GetMapping(value = "/delete")
+    public String deletePostById(@RequestParam("postId") int id) {
+
+        System.out.println("Deleting record...");
+
+        postService.deletePostById(id);
+
+        System.out.println("Record was removed successfully form the database");
+
+        return "redirect:/posts.html";
     }
 
 

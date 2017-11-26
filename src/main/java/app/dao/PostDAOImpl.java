@@ -1,6 +1,7 @@
 package app.dao;
 
 import app.entity.Post;
+import app.entity.PostDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

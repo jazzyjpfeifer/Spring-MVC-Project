@@ -12,6 +12,6 @@ public interface PostService {
 
     public Post getPostById(int id);
 
-    public void deletePostById(int id);
+    public Post deletePostById(int id);
 
 }

@@ -5,6 +5,8 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
@@ -31,14 +33,18 @@ public class Post {
     @Column(name = "author")
     private Timestamp author;
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
+    private List<PostDetail> postdetails;
+
     public Post() {
 
     }
 
-    public Post(String title, String summary, Timestamp datePosted, Timestamp author) {
+    public Post(String title, String summary, Timestamp datePosted, Timestamp dateLastModified, Timestamp author) {
         this.title = title;
         this.summary = summary;
         this.datePosted = datePosted;
+        this.dateLastModified = dateLastModified;
         this.author = author;
     }
 
@@ -74,12 +80,39 @@ public class Post {
         this.datePosted = datePosted;
     }
 
+    public Timestamp getDateLastModified() {
+        return dateLastModified;
+    }
+
+    public void setDateLastModified(Timestamp dateLastModified) {
+        this.dateLastModified = dateLastModified;
+    }
+
     public Timestamp getAuthor() {
         return author;
     }
 
     public void setAuthor(Timestamp author) {
         this.author = author;
+    }
+
+    public List getPostdetails() {
+        return postdetails;
+    }
+
+    public void setPostdetails(List postdetails) {
+        this.postdetails = postdetails;
+    }
+
+    // add a convenience method
+
+    public void addPostDetail(PostDetail postDetail) {
+
+        if (postdetails == null) {
+            postdetails = new ArrayList<>();
+        }
+
+        postdetails.add(postDetail);
     }
 
     @Override
@@ -89,7 +122,9 @@ public class Post {
                 ", title='" + title + '\'' +
                 ", summary='" + summary + '\'' +
                 ", datePosted=" + datePosted +
+                ", dateLastModified=" + dateLastModified +
                 ", author=" + author +
+                ", postdetails=" + postdetails +
                 '}';
     }
 }

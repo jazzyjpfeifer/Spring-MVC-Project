@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head (title='Posts')"></head>
+<body>
+<div class="container">
+    <header th:replace="fragments/header :: header"></header>
+    <div class="row">
+        <div class="container">
+            <h1>Post Details</h1>
+
+            <form action="#" th:action="@{/post_details/save}" th:object="${postdetails}" method="post">
+                <input type="hidden" th:field="*{id}"/>
+                <div class="form-group">
+                    <label for="content">Content:</label>
+                    <input type="text" class="form-control" id="content" th:field="*{content}" />
+                </div>
+                <div class="form-group">
+                    <label for="contentType">ContentType:</label>
+                    <textarea class="form-control" id="contentType" rows="3" th:field="*{contentType}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+
+
+            <a href="/posts/add" class="btn btn-primary admin-menu">+ Add Details to Post</a>
+            <div class="row">
+                <a class="btn btn-default" href="/posts">Go Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>
