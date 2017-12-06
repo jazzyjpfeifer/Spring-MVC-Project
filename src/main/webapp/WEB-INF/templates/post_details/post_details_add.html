@@ -12,13 +12,20 @@
                 <input type="hidden" th:field="*{id}"/>
                 <div class="form-group">
                     <label for="content">Content:</label>
-                    <input type="text" class="form-control" id="content" th:field="*{content}" />
+                    <input type="text" id="content" th:field="${postdetails.content}"/>
                 </div>
                 <div class="form-group">
-                    <label for="contentType">ContentType:</label>
-                    <textarea class="form-control" id="contentType" rows="3" th:field="*{contentType}"></textarea>
+                    <label for="content_type">Content Type:</label>
+                    <select id="content_type" name="content_id">
+                        <option th:each="type : ${allTypes}"
+                                th:value="${type.id}"
+                                th:text="${type.ContentType}">
+                        </option>
+                    </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
             </form>
 
 

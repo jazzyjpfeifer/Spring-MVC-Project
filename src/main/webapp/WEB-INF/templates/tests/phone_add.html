@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head (title='New User')"></head>
+<body>
+<div class="container">
+    <header th:replace="fragments/header :: header"></header>
+
+    <h1>Add User</h1>
+
+    <form action="#" th:action="@{/tests/phone/save(personId = ${personId})}" method="post">
+        <input type="hidden" th:field="*{phone.id}"/>
+        <div class="form-group">
+            <label for="number">Number:</label>
+            <input type="text" class="form-control" id="number" th:field="*{phone.number}" />
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+    <div class="web-links">
+        <a href="/users">Go Back</a>
+    </div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

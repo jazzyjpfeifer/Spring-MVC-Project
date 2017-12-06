@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head (title='Post Detail')"></head>
+<body>
+<div class="container">
+    <header th:replace="fragments/header :: header"></header>
+    <h1>Person Details</h1>
+    <h3 th:text="${person.id}"></h3>
+    <p th:text="${person.name}"></p>
+    <a th:href="@{'/tests/person/show/phone'(personId = ${person.id})}">Add  Phone Numbers to Person</a>
+    <div class="web-links">
+        <a href="/posts">Go Back</a>
+    </div>
+</div>
+<footer th:replace="fragments/footer :: footer"></footer>
+</body>
+</html>

@@ -31,16 +31,16 @@ public class Post {
     private Timestamp dateLastModified;
 
     @Column(name = "author")
-    private Timestamp author;
+    private String author;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
-    private List<PostDetail> postdetails;
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PostDetail> postdetails = new ArrayList<>();
 
     public Post() {
 
     }
 
-    public Post(String title, String summary, Timestamp datePosted, Timestamp dateLastModified, Timestamp author) {
+    public Post(String title, String summary, Timestamp datePosted, Timestamp dateLastModified, String author) {
         this.title = title;
         this.summary = summary;
         this.datePosted = datePosted;
@@ -88,11 +88,11 @@ public class Post {
         this.dateLastModified = dateLastModified;
     }
 
-    public Timestamp getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(Timestamp author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 
@@ -104,16 +104,7 @@ public class Post {
         this.postdetails = postdetails;
     }
 
-    // add a convenience method
 
-    public void addPostDetail(PostDetail postDetail) {
-
-        if (postdetails == null) {
-            postdetails = new ArrayList<>();
-        }
-
-        postdetails.add(postDetail);
-    }
 
     @Override
     public String toString() {
@@ -127,4 +118,5 @@ public class Post {
                 ", postdetails=" + postdetails +
                 '}';
     }
+
 }

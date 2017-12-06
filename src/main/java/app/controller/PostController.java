@@ -1,5 +1,6 @@
 package app.controller;
 
+
 import app.entity.Post;
 import app.entity.PostDetail;
 import app.service.PostDetailService;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @Controller
 @RequestMapping(value = "/posts")
@@ -37,6 +39,7 @@ public class PostController {
         return "/posts/post_add.html";
 
     }
+
 
     @PostMapping(value = "/save")
     public String savePost(@ModelAttribute("post") Post post) {
@@ -82,8 +85,10 @@ public class PostController {
 
         System.out.println("Record was removed successfully form the database");
 
-        return "redirect:/posts.html";
+        return "redirect:/posts";
     }
+
+
 
 
 }

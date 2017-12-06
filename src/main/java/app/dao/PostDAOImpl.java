@@ -1,5 +1,6 @@
 package app.dao;
 
+import app.entity.ContentType;
 import app.entity.Post;
 import app.entity.PostDetail;
 import org.hibernate.Session;

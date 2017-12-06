@@ -1,5 +1,6 @@
 package app.dao;
 
+import app.entity.ContentType;
 import app.entity.PostDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -33,6 +34,8 @@ public class PostDetailDAOImpl implements PostDetailDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         currentSession.saveOrUpdate(postDetail);
+
+
     }
 
 
