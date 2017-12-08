@@ -1,7 +1,6 @@
 package app.entity;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
 @Table(name = "post_details")
@@ -15,16 +14,20 @@ public class PostDetail {
     @Column(name = "content")
     private String content;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name="content_type_id")
     private ContentType contentType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", insertable = false, updatable = false)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "post_id")
     private Post post;
 
     public PostDetail() {
 
+    }
+
+    public PostDetail(String content) {
+        this.content = content;
     }
 
     public int getId() {
@@ -59,13 +62,14 @@ public class PostDetail {
         this.post = post;
     }
 
+
+
     @Override
     public String toString() {
         return "PostDetail{" +
                 "id=" + id +
                 ", content='" + content + '\'' +
                 ", contentType=" + contentType +
-                ", post=" + post +
                 '}';
     }
 }

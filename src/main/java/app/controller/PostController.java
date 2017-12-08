@@ -1,14 +1,17 @@
 package app.controller;
 
 
+import app.entity.ContentType;
 import app.entity.Post;
 import app.entity.PostDetail;
+import app.service.ContentTypeService;
 import app.service.PostDetailService;
 import app.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -22,6 +25,9 @@ public class PostController {
 
     @Autowired
     private PostDetailService postDetailService;
+
+    @Autowired
+    private ContentTypeService contentTypeService;
 
     @GetMapping()
     public String getPosts(Model model) {
@@ -40,7 +46,6 @@ public class PostController {
 
     }
 
-
     @PostMapping(value = "/save")
     public String savePost(@ModelAttribute("post") Post post) {
 
@@ -51,7 +56,7 @@ public class PostController {
 
         System.out.println("Post was saved to the database successfully!");
 
-        return "redirect:/posts.html";
+        return "redirect:/posts";
     }
 
     @GetMapping(value = "/edit")
@@ -66,14 +71,52 @@ public class PostController {
     public String showPostById(@RequestParam("postId") int id, Model model) {
 
         Post post = postService.getPostById(id);
-
-        List<PostDetail> postdetails = postDetailService.getPostDetails();
+        List<PostDetail> postDetails = postDetailService.getPostDetails();
 
         model.addAttribute("post", post);
-        model.addAttribute("postdetails", postdetails);
+        model.addAttribute("postdetails", postDetails);
+
 
         return "/posts/post_show.html";
 
+    }
+
+    @GetMapping(value = "/show/add_details")
+    public String showPostDetailsForm(@RequestParam("postId") int post_id, Model model) {
+
+       Post post = postService.getPostById(post_id);
+       PostDetail newPostDetail = new PostDetail();
+
+       model.addAttribute("post", post);
+       model.addAttribute("postdetails", newPostDetail);
+       model.addAttribute("allTypes", contentTypeService.getAllContentTypes());
+
+       return "/post_details/post_details_add.html";
+
+    }
+
+    @PostMapping(value = "/show/save_details")
+    public String savePostDetails(RedirectAttributes redirectAttributes,
+                                  @ModelAttribute("postdetails") PostDetail postDetail,
+                                  @RequestParam("postId") int post_id,
+                                  @RequestParam("content_id") int content_id) {
+
+
+        //Getting Post by ID
+        Post post = postService.getPostById(post_id);
+
+        //Getting Content by ID
+        ContentType contentType = contentTypeService.getContentTypeById(content_id);
+
+        postDetail.setContentType(contentType);
+
+        postDetailService.savePostDetail(postDetail);
+
+        post.add(postDetail);
+
+        redirectAttributes.addAttribute("postId", post_id);
+
+        return "redirect:/posts/show";
     }
 
     @GetMapping(value = "/delete")

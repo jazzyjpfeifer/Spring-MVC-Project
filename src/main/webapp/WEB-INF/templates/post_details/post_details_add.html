@@ -8,8 +8,7 @@
         <div class="container">
             <h1>Post Details</h1>
 
-            <form action="#" th:action="@{/post_details/save}" th:object="${postdetails}" method="post">
-                <input type="hidden" th:field="*{id}"/>
+            <form action="#" th:action="@{'/posts/show/save_details'(postId = ${post.id})}" th:object="${postdetails}" method="post">
                 <div class="form-group">
                     <label for="content">Content:</label>
                     <input type="text" id="content" th:field="${postdetails.content}"/>

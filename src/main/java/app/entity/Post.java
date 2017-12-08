@@ -33,8 +33,8 @@ public class Post {
     @Column(name = "author")
     private String author;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PostDetail> postdetails = new ArrayList<>();
+    @OneToMany(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    private List<PostDetail> postdetails;
 
     public Post() {
 
@@ -96,13 +96,27 @@ public class Post {
         this.author = author;
     }
 
-    public List getPostdetails() {
+    public List<PostDetail> getPostdetails() {
         return postdetails;
     }
 
-    public void setPostdetails(List postdetails) {
+    public void setPostdetails(List<PostDetail> postdetails) {
         this.postdetails = postdetails;
     }
+
+    // add convenience methods for bi-directional relationship
+
+    public void add(PostDetail tempPostDetail) {
+        if (postdetails == null) {
+            postdetails = new ArrayList<>();
+        }
+
+        postdetails.add(tempPostDetail);
+
+        tempPostDetail.setPost(this);
+
+    }
+
 
 
 

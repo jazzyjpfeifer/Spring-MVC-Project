@@ -8,6 +8,7 @@
     <h1>Post Details</h1>
     <h3 th:text="${post.title}"></h3>
     <p th:text="${post.summary}"></p>
+    <a th:href="@{'/posts/show/add_details'(postId = ${post.id})}">Add Details to Post Here</a>
     <table class="table">
         <thead>
         <tr>
@@ -20,13 +21,9 @@
         <tr th:each="pd : ${postdetails}">
             <td th:text="${pd.id}"></td>
             <td th:text="${pd.content}"></td>
-            <td th:text="${pd.contentType}"></td>
         </tr>
         </tbody>
     </table>
-
-
-    <a th:href="@{'/post_details/add'}">Edit Post Details</a>
     <div class="web-links">
         <a href="/posts">Go Back</a>
     </div>

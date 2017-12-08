@@ -41,7 +41,7 @@ public class PostDetailController {
         model.addAttribute("postdetails", newPostDetail);
         model.addAttribute("allTypes", contentTypeService.getAllContentTypes());
 
-        return "redirect:/post_details";
+        return "post_details/post_details_add.html";
     }
 
     @PostMapping(value = "/save")
@@ -51,13 +51,15 @@ public class PostDetailController {
 
         ContentType contentType = contentTypeService.getContentTypeById(content_id);
 
+        int postId = 1;
+
         postDetail.setContentType(contentType);
 
         postDetailService.savePostDetail(postDetail);
 
         System.out.println("Post Details were saved to the database successfully!");
 
-        return "redirect:/post_details/add";
+        return "redirect:/post_details";
 
     }
 
