@@ -1,8 +1,6 @@
 package app.dao;
 
-import app.entity.ContentType;
 import app.entity.Post;
-import app.entity.PostDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -54,7 +52,13 @@ public class PostDAOImpl implements PostDAO {
 
         Query query = currentSession.createQuery("delete from Post where id=:postId");
 
+        Query query2 = currentSession.createQuery("delete  from PostDetail where post_id=:postId");
+
         query.setParameter("postId", id);
+
+        query2.setParameter("postId", id);
+
+        query2.executeUpdate();
 
         query.executeUpdate();
     }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PostDetailService {
 
-    public List<PostDetail> getPostDetails();
+    public List<PostDetail> getPostDetails(int post_id);
 
     public void savePostDetail(PostDetail postDetail);
 

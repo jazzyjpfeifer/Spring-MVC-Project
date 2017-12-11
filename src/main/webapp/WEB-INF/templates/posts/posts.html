@@ -12,17 +12,15 @@
                 <table class="table">
                     <thead>
                     <tr>
-                        <th>ID:</th>
                         <th>Title:</th>
                         <th>Summary:</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="post : ${posts}">
-                        <td th:text="${post.id}"></td>
                         <td th:text="${post.title}"></td>
                         <td th:text="${post.summary}"></td>
-                        <td><a th:href="@{'/posts/show/'(postId = ${post.id})}">Details</a></td>
+                        <td><a th:href="@{'/post_details/show/'(postId = ${post.id})}">Details</a></td>
                         <td><a th:href="@{'/posts/edit/'(postId = ${post.id})}">Edit</a></td>
                         <td><a th:href="@{'/posts/delete/'(postId=${post.id})}">Delete</a></td>
                     </tr>

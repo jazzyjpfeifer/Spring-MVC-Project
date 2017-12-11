@@ -18,8 +18,8 @@ public class PostDetailServiceImpl implements PostDetailService {
 
     @Override
     @Transactional
-    public List<PostDetail> getPostDetails() {
-        return postDetailDAO.getPostDetails();
+    public List<PostDetail> getPostDetails(int post_id) {
+        return postDetailDAO.getPostDetails(post_id);
     }
 
     @Override

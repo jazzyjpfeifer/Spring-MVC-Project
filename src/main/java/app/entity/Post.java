@@ -20,6 +20,7 @@ public class Post {
     private String title;
 
     @Column(name = "summary")
+    @Lob
     private String summary;
 
     @CreationTimestamp
@@ -33,7 +34,10 @@ public class Post {
     @Column(name = "author")
     private String author;
 
-    @OneToMany(mappedBy = "post", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "post",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
     private List<PostDetail> postdetails;
 
     public Post() {

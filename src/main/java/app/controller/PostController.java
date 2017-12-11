@@ -67,57 +67,6 @@ public class PostController {
         return "/posts/post_add.html";
     }
 
-    @GetMapping(value = "/show")
-    public String showPostById(@RequestParam("postId") int id, Model model) {
-
-        Post post = postService.getPostById(id);
-        List<PostDetail> postDetails = postDetailService.getPostDetails();
-
-        model.addAttribute("post", post);
-        model.addAttribute("postdetails", postDetails);
-
-
-        return "/posts/post_show.html";
-
-    }
-
-    @GetMapping(value = "/show/add_details")
-    public String showPostDetailsForm(@RequestParam("postId") int post_id, Model model) {
-
-       Post post = postService.getPostById(post_id);
-       PostDetail newPostDetail = new PostDetail();
-
-       model.addAttribute("post", post);
-       model.addAttribute("postdetails", newPostDetail);
-       model.addAttribute("allTypes", contentTypeService.getAllContentTypes());
-
-       return "/post_details/post_details_add.html";
-
-    }
-
-    @PostMapping(value = "/show/save_details")
-    public String savePostDetails(RedirectAttributes redirectAttributes,
-                                  @ModelAttribute("postdetails") PostDetail postDetail,
-                                  @RequestParam("postId") int post_id,
-                                  @RequestParam("content_id") int content_id) {
-
-
-        //Getting Post by ID
-        Post post = postService.getPostById(post_id);
-
-        //Getting Content by ID
-        ContentType contentType = contentTypeService.getContentTypeById(content_id);
-
-        postDetail.setContentType(contentType);
-
-        postDetailService.savePostDetail(postDetail);
-
-        post.add(postDetail);
-
-        redirectAttributes.addAttribute("postId", post_id);
-
-        return "redirect:/posts/show";
-    }
 
     @GetMapping(value = "/delete")
     public String deletePostById(@RequestParam("postId") int id) {
